@@ -13,7 +13,86 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="verticalLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>67</x>
+      <y>50</y>
+      <width>661</width>
+      <height>401</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="mainLayout">
+     <property name="topMargin">
+      <number>10</number>
+     </property>
+     <property name="bottomMargin">
+      <number>10</number>
+     </property>
+     <item>
+      <layout class="QVBoxLayout" name="layout_loadMemo">
+       <item>
+        <widget class="QLabel" name="label_loadPaperInstruction">
+         <property name="text">
+          <string>Add your past paper by clicking &quot;Load Past Paper&quot; </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_loadPastPaper">
+         <property name="text">
+          <string>Load Past Paper</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="layout_loadPastPaper">
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label_loadMemoInstruction">
+         <property name="text">
+          <string>Add the memo to your past paper by clicking &quot;Load Past Paper Memo&quot; </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_loadMemo">
+         <property name="text">
+          <string>Load Past Paper Memo</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="layout_generateLayout">
+       <property name="topMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label_generateInstruction">
+         <property name="text">
+          <string>Once both documents are loaded, click &quot;Generate Layout&quot; to go to the marking window. </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_generateLayout">
+         <property name="text">
+          <string>Generate Layout</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
