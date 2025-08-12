@@ -40,6 +40,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="btn_loadPastPaper">
          <property name="text">
           <string>Load Past Paper</string>
@@ -57,6 +64,13 @@
         <widget class="QLabel" name="label_loadMemoInstruction">
          <property name="text">
           <string>Add the memo to your past paper by clicking &quot;Load Past Paper Memo&quot; </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>TextLabel</string>
          </property>
         </widget>
        </item>

@@ -11,9 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-
 class Ui_MainWindow(object):
-        
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(780, 552)
@@ -30,6 +28,9 @@ class Ui_MainWindow(object):
         self.label_loadPaperInstruction = QtWidgets.QLabel(self.verticalLayoutWidget_4)
         self.label_loadPaperInstruction.setObjectName("label_loadPaperInstruction")
         self.layout_loadMemo.addWidget(self.label_loadPaperInstruction)
+        self.label = QtWidgets.QLabel(self.verticalLayoutWidget_4)
+        self.label.setObjectName("label")
+        self.layout_loadMemo.addWidget(self.label)
         self.btn_loadPastPaper = QtWidgets.QPushButton(self.verticalLayoutWidget_4)
         self.btn_loadPastPaper.setObjectName("btn_loadPastPaper")
         self.layout_loadMemo.addWidget(self.btn_loadPastPaper)
@@ -40,6 +41,9 @@ class Ui_MainWindow(object):
         self.label_loadMemoInstruction = QtWidgets.QLabel(self.verticalLayoutWidget_4)
         self.label_loadMemoInstruction.setObjectName("label_loadMemoInstruction")
         self.layout_loadPastPaper.addWidget(self.label_loadMemoInstruction)
+        self.label_2 = QtWidgets.QLabel(self.verticalLayoutWidget_4)
+        self.label_2.setObjectName("label_2")
+        self.layout_loadPastPaper.addWidget(self.label_2)
         self.btn_loadMemo = QtWidgets.QPushButton(self.verticalLayoutWidget_4)
         self.btn_loadMemo.setObjectName("btn_loadMemo")
         self.layout_loadPastPaper.addWidget(self.btn_loadMemo)
@@ -62,6 +66,7 @@ class Ui_MainWindow(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -69,8 +74,10 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_loadPaperInstruction.setText(_translate("MainWindow", "Add your past paper by clicking \"Load Past Paper\" "))
+        self.label.setText(_translate("MainWindow", "TextLabel"))
         self.btn_loadPastPaper.setText(_translate("MainWindow", "Load Past Paper"))
         self.label_loadMemoInstruction.setText(_translate("MainWindow", "Add the memo to your past paper by clicking \"Load Past Paper Memo\" "))
+        self.label_2.setText(_translate("MainWindow", "TextLabel"))
         self.btn_loadMemo.setText(_translate("MainWindow", "Load Past Paper Memo"))
         self.label_generateInstruction.setText(_translate("MainWindow", "Once both documents are loaded, click \"Generate Layout\" to go to the marking window. "))
         self.btn_generateLayout.setText(_translate("MainWindow", "Generate Layout"))
