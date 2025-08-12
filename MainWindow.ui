@@ -40,7 +40,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="label_pastPaperFileName">
          <property name="text">
           <string>TextLabel</string>
          </property>
@@ -68,7 +68,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="label_memoFileName">
          <property name="text">
           <string>TextLabel</string>
          </property>
