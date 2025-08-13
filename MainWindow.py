@@ -74,13 +74,14 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_loadPaperInstruction.setText(_translate("MainWindow", "Add your past paper by clicking \"Load Past Paper\" "))
-        self.label_pastPaperFileName.setText(_translate("MainWindow", ""))
+        #self.label_pastPaperFileName.setText(_translate("MainWindow", ""))
         self.btn_loadPastPaper.setText(_translate("MainWindow", "Load Past Paper"))
         self.label_loadMemoInstruction.setText(_translate("MainWindow", "Add the memo to your past paper by clicking \"Load Past Paper Memo\" "))
-        self.label_memoFileName.setText(_translate("MainWindow", ""))
+        #self.label_memoFileName.setText(_translate("MainWindow", ""))
         self.btn_loadMemo.setText(_translate("MainWindow", "Load Past Paper Memo"))
         self.label_generateInstruction.setText(_translate("MainWindow", "Once both documents are loaded, click \"Generate Layout\" to go to the marking window. "))
         self.btn_generateLayout.setText(_translate("MainWindow", "Generate Layout"))
+        self.btn_generateLayout.setEnabled(False)
 
 
 if __name__ == "__main__":

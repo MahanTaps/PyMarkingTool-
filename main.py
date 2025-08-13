@@ -18,7 +18,8 @@ class Main(QtWidgets.QMainWindow,Ui_MainWindow):
             self.label_pastPaperFileName.setText(str(fname))
         elif (fname and fileType=="memo"):
             self.label_memoFileName.setText(str(fname))
-
+        if self.are_both_files_loaded():
+            self.btn_generateLayout.setEnabled(True)
 
     def on_loadMemo_clicked(self):
         print("btn_LoadMemo clicked!")
@@ -26,12 +27,15 @@ class Main(QtWidgets.QMainWindow,Ui_MainWindow):
     def on_loadPastPaper_clicked(self):
         print("btn_loadPastPaper clicked!")
         self.loadFileDialog("paper")
+    def are_both_files_loaded(self):
+        return(bool(self.label_pastPaperFileName.text() and self.label_memoFileName.text()))
 
 
 if __name__=="__main__":
     app = QtWidgets.QApplication(sys.argv)
     window=Main()
     window.show()
+
     # MainWindow = QtWidgets.QMainWindow()
     # ui = Ui_MainWindow()
     # ui.setupUi(MainWindow)
