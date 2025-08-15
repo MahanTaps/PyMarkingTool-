@@ -6,6 +6,7 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
     def __init__(self):
         QtWidgets.QDialog.__init__(self)
         self.setupUi(self)
+        print("Made answer Viewer!")
     
 if __name__=="__main__":
     app=QtWidgets.QApplication(sys.argv)

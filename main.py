@@ -39,18 +39,15 @@ class Main(QtWidgets.QMainWindow,Ui_MainWindow):
         warning_box.setWindowTitle("Proceed to marking window?")
         warning_box.setStandardButtons(QMessageBox.Yes|QMessageBox.Cancel)
         warning_box.setDetailedText("Make sure that the question paper and the memo correspond.")
-        warning_box.buttonClicked.connect(self.handle_warning_response)
-        warning_box.exec_()
-    
-    def handle_warning_response(self,i):
-        print(i)
-        if (i.text()=="Yes"):
+        retval=warning_box.exec_()
+        if retval==QMessageBox.Yes:
             self.show_layout_window()
+    
 
  
     #Other Functions 
     def show_layout_window(self):
-        viewer=QuestionAnswerViewer(parent=self)
+        viewer=QuestionAnswerViewer()
         viewer.exec_()
 
 
