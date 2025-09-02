@@ -1,0 +1,2 @@
+So if you have a class that builds the .json data base from the paper. 
+Then one that accesses the database (the model) and feeds it to the dialog window. 
