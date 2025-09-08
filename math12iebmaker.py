@@ -2,8 +2,18 @@ from abstractrectanglemaker import AbstractRectangleMaker
 import pymupdf 
 import re 
 from itertools import zip_longest
+import utils
 
 class Math12IEBMaker(AbstractRectangleMaker):
+    def __init__(self,q_filename,a_filename,q_doc,a_doc,raw_text):
+        self.q_doc=pymupdf.open(q_filename)
+        self.a_doc=pymupdf.open(a_filename)
+        self.raw_text[0]= utils.pdf_to_text(q_doc)
+        self.raw_text[1]=utils.pdf_to_text(a_doc)
+    
+    def raw_text(self):
+        return self.raw_text
+
     def regex_separators(self):
         patterns={
             "main_questions":r"(QUESTION \d+\s+[\s\S]+?)(?=\nQUESTION \d+|\Z)",
@@ -13,6 +23,9 @@ class Math12IEBMaker(AbstractRectangleMaker):
             "memo_start_keys":r"\s\n"
         }
         return patterns 
+    
+    def question_rectangles(self,document):
+        
     #def answer_rectangles(self,memo):
     
 
@@ -20,17 +33,6 @@ class Math12IEBMaker(AbstractRectangleMaker):
 
 
     ###Outside functions: 
-    def pdf_to_text(doc): 
-        text=""
-        for page in doc: 
-            text+=page.get_text()
-        return text
     
-    def get_answer_texts():
-        file="example2.pdf"
-        doc=pymupdf.open(file)
-        text=pdf_to_text(doc)
-        pattern=
-        answer_text=re.findall(pattern,text,re.DOTALL)
-        return answer_text
+
     

@@ -3,6 +3,10 @@ from pathlib import Path
 
 
 class AbstractRectangleMaker(ABC):
+    @property 
+    @abstractmethod
+    def raw_text(self):
+        """The raw text from the PDF document"""
     @property
     @abstractmethod
     def regex_separators(self):
