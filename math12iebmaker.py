@@ -24,14 +24,16 @@ class Math12IEBMaker(AbstractRectangleMaker):
         }
         return patterns 
     
-    def question_rectangles(self,document):
+    def question_rectangles(self):
+        q_list=utils.get_questions_list((self.raw_text())[0],self.regex_separators())
+        q_rects=utils.get_rectangle_list(q_list,self.q_doc)
+        return q_rects
         
-    #def answer_rectangles(self,memo):
+    def answer_rectangles(self):
+        a_list=utils.get_answer_list(self.raw_text[1],(self.regex_separators()))
+        a_rects=utils.get_answer_rectangle_list(a_list,self.a_doc)
+        return a_rects
     
-
-
-
-
     ###Outside functions: 
     
 
