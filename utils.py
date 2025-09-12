@@ -230,3 +230,29 @@ def tuple_to_rect(tup):
     if len(tup)==4:
         rect=pymupdf.Rect(tup[0],tup[1],tup[2],tup[3])
     return rect 
+
+
+def get_question_starts(question_list,pattern):
+    question_starts=[]
+    for q in question_list:
+        if type(q) is list:
+            for subq in q:
+                q_start=get_question_start(subq,pattern)
+                question_starts.append(q_start)
+        else:
+            q_start=get_question_start(q)
+            question_starts.append(q_start)
+    print(len(question_starts))
+    return question_starts
+
+def get_question_start(question,pattern):
+    return get_match(question,pattern)
+
+def get_match(text,pattern):
+    match=re.search(pattern,text,re.MULTILINE)
+    match_text=match.group(0)
+    return match_text 
+
+def get_question_titles(question_list,patterns):
+    return get_question_starts(question_list,patterns["question_identifiers"])
+    
