@@ -38,7 +38,6 @@ def remove_empty_strings(list):#Removes the empty strings from a list
     return full_list
 
 def subsub_questions(pattern,list):#Splits the subquestions into further subsubquestions
-    pattern=r"(?<=\([0-9]\))(\s{3,}|$)"
     newlist=[]
     for i,q in enumerate(list):
         print("i: ",i)
@@ -52,7 +51,7 @@ def subsub_questions(pattern,list):#Splits the subquestions into further subsubq
             newlist.append(sublist)
     return newlist
 
-def nested_sub_check(text):#Checks if a singl sub question has a further sub question 
+def nested_sub_check(text):#Checks if a single sub question has a further sub question 
     pattern=r"\([0-9]\)"
     matches=(re.finditer(pattern,text,re.MULTILINE))
     match_list= [match.group() for match in matches]
@@ -240,7 +239,7 @@ def get_question_starts(question_list,pattern):
                 q_start=get_question_start(subq,pattern)
                 question_starts.append(q_start)
         else:
-            q_start=get_question_start(q)
+            q_start=get_question_start(q,pattern)
             question_starts.append(q_start)
     print(len(question_starts))
     return question_starts
@@ -256,3 +255,13 @@ def get_match(text,pattern):
 def get_question_titles(question_list,patterns):
     return get_question_starts(question_list,patterns["question_identifiers"])
     
+def get_stems(questions,pattern):#Used for getting stems 
+    stems=[]
+    for q in questions:
+        stems.append(get_match(q,pattern))
+    return stems
+
+def get_stem_list(text,patterns):
+    text_list=main_questions(text,patterns["main_questions"])
+    stems_list=get_stems(text_list,patterns["question_stems"])
+    return stems_list
