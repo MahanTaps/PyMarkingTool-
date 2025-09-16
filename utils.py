@@ -208,10 +208,14 @@ def get_disjointed_rectangles(text,page):
     return rects
 
 def get_first_and_last(text):
-    first=(text.split('\n'))[0]
-    last= (text.split('\n'))[-1]
-    first_and_last=first+last
+    first_and_last=[]
+    split_pattern=r"\n \n"
+    split_text=re.split(split_pattern,text)
+    first=split_text[0]
+    last=split_text[-1]
+    first_and_last.extend([first,last])
     return first_and_last
+
 
 def get_text_blocks(page):
     text_page=page.get_textpage()
@@ -253,8 +257,65 @@ def get_match(text,pattern):
     return match_text 
 
 def get_question_titles(question_list,patterns):
-    return get_question_starts(question_list,patterns["question_identifiers"])
-    
+    q_starts=get_question_starts(question_list,patterns["question_identifiers"])
+    return format_question_starts(q_starts)
+
+def format_question_starts(question_starts):
+    index=0
+    tag=""
+    subtag=""
+    sub_subtag=""
+    prev_q_start=None
+    formatted_q_starts=[]
+    for x,y in zip_longest(question_starts,question_starts[1:],fillvalue="end"):
+        if (has_letter(x)):
+            if (is_new_question(x)):
+                index+=1
+            tag=x 
+            if (has_number(y)):
+                subtag="(1)"
+            elif (is_sub_subquestion(y)):
+                subtag="(1)"
+                sub_subtag="(i)"
+            else:
+                subtag=""
+                sub_subtag=""
+        elif (has_number(x)):
+            subtag=x
+            if (is_sub_subquestion(y)):
+                sub_subtag="(1)"
+            else:
+                sub_subtag=""
+        elif(is_sub_subquestion(x)):
+            sub_subtag=x
+        formatted_q_starts.append(get_modified_question_title(index,tag,subtag,sub_subtag))
+        
+
+    return formatted_q_starts
+def has_letter(question):
+    letter_pattern=r"\([a-z]\)"
+    return (has_substring(question,letter_pattern))
+
+def has_substring(string,substring): 
+    match=re.search(substring,string)
+    return bool(match)
+
+def has_number(question):
+    number_pattern=r"\([0-9]\)"
+    return (has_substring(question,number_pattern))
+
+def is_new_question(question): 
+    pattern=r"^\(a\)"
+    return(has_substring(question,pattern))
+
+def is_sub_subquestion(question):
+    pattern=r"^\(i+\)"
+    return has_substring(question,pattern)
+
+def get_modified_question_title(index,tag,subtag="",sub_subtag=""):
+    mod_q_start=str(index)+tag+subtag+sub_subtag
+    return mod_q_start
+
 def get_stems(questions,pattern):#Used for getting stems 
     stems=[]
     for q in questions:
