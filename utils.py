@@ -323,6 +323,6 @@ def get_stems(questions,pattern):#Used for getting stems
     return stems
 
 def get_stem_list(text,patterns):
-    text_list=main_questions(text,patterns["main_questions"])
+    text_list=main_questions(patterns["main_questions"],text)
     stems_list=get_stems(text_list,patterns["question_stems"])
     return stems_list
