@@ -52,12 +52,13 @@ class Math12IEBMaker(AbstractRectangleMaker):
     def export_rectangles(self):
         q_rects=self.question_rectangles()
         a_rects=self.answer_rectangles()
+        q_titles=self.question_titles()
         rects={
             "q_rects":q_rects,
             "a_rects":a_rects,
-            "q_titles":self.question_titles(),
+            "q_titles":q_titles,
             "stem_rects":self.question_stem_rectangles(),
-            "rect_check": (len(q_rects)==len(a_rects)),
+            "rect_check": (len(q_rects)==len(a_rects)==len(q_titles)),
         }
         return rects
 
