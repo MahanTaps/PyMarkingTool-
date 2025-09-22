@@ -38,27 +38,20 @@ class Math12IEBMaker(AbstractRectangleMaker):
         a_rects=utils.get_answer_rectangle_list(a_list,self.a_doc)
         return a_rects
     
-    def question_titles(self):
-        q_titles=utils.get_question_titles(self.q_list,self.regex_separators())
-        return q_titles
-    
     def question_stem_rectangles(self):
     #use get_stems to get the list, then pass it to the rectangles function to get the rects. 
         qstem_list=utils.get_stem_list(self.raw_text[0],self.regex_separators())
-        print("qstem_list:",qstem_list)
         qstem_rects=utils.get_rectangle_list(qstem_list,self.q_doc)
         return qstem_rects 
     
     def export_rectangles(self):
         q_rects=self.question_rectangles()
         a_rects=self.answer_rectangles()
-        q_titles=self.question_titles()
         rects={
             "q_rects":q_rects,
             "a_rects":a_rects,
-            "q_titles":q_titles,
             "stem_rects":self.question_stem_rectangles(),
-            "rect_check": (len(q_rects)==len(a_rects)==len(q_titles)),
+            "rect_check": (len(q_rects)==len(a_rects)),
         }
         return rects
 

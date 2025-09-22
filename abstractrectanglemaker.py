@@ -24,11 +24,6 @@ class AbstractRectangleMaker(ABC):
         """Creates a list of all the answer rectangles with their page numbers"""
         pass 
 
-    @property
-    @abstractmethod 
-    def question_titles(self):
-        """Creates a list of The titles to each question"""
-        pass 
 
     @property 
     @abstractmethod 
