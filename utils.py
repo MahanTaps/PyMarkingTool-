@@ -181,8 +181,10 @@ def get_rectangle_list(question_texts,doc):
 
 def get_rectangles(text,page):
     rectangles=page.search_for(text)
-    if (len(rectangles)>1):
-        rectangles=merged_rectangle(rectangles)       
+    if (len(rectangles)>=2):
+        rectangles=merged_rectangle(rectangles)
+    elif (type(rectangles) is list and len(rectangles)!=0):
+        rectangles=rectangles[0]
     return rectangles
 
 def merged_rectangle(rectangles): 
