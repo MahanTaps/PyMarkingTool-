@@ -49,10 +49,8 @@ class Math12IEBMaker(AbstractRectangleMaker):
         a_rects=self.answer_rectangles()
         rects={
             "q_rects":q_rects,
-            "a_rects":a_rects,
             "stem_rects":self.question_stem_rectangles(),
-            "q_doc":self.q_doc,
-            "a_doc":self.a_doc,
+            "a_rects":a_rects,
             "rect_check": (len(q_rects)==len(a_rects)),
         }
         return rects
