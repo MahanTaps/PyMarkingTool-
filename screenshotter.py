@@ -1,4 +1,6 @@
 class ScreenShotter:
+    def __init__(self,q_doc,a_doc,locations):
+        self.batch_filenames=self.prepare_screenshots(q_doc,a_doc,locations)
 
     def take_screenshot(self,doc,location,filename,q_num):
         page=doc[location[1]]
