@@ -44,14 +44,20 @@ class Math12IEBMaker(AbstractRectangleMaker):
         qstem_rects=utils.get_rectangle_list(qstem_list,self.q_doc)
         return qstem_rects 
     
+    def get_question_titles(self): 
+        titles = utils.get_question_titles(self.q_list,self.regex_separators())
+        return titles            
+
     def export_rectangles(self):
         q_rects=self.question_rectangles()
         a_rects=self.answer_rectangles()
+        q_titles=self.get_question_titles()
         rects={
             "q_rects":q_rects,
             "stem_rects":self.question_stem_rectangles(),
             "a_rects":a_rects,
-            "rect_check": (len(q_rects)==len(a_rects)),
+            "q_titles":q_titles,
+            "rect_check": (len(q_rects)==len(a_rects)==len(q_titles)),
         }
         return rects
 
