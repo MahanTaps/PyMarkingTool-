@@ -156,6 +156,7 @@ def get_rectangle_list(question_texts,doc):
                     page_num+=1
                     page=doc[page_num]
                 rect=(get_rectangles(subq,page))
+                rect.x1= get_page_width(page)
                 rectangle_list.append((rect,page.number))
                 
         else:
@@ -173,6 +174,7 @@ def get_rectangle_list(question_texts,doc):
                     rects=get_rectangles(q,page)
     
                 rect=(rects)
+                rect.x1=get_page_width(page)
                 rectangle_list.append((rect,page.number))
                 #make_clipping(page,rect,page.number)
     print(rectangle_list)
@@ -200,11 +202,20 @@ def merged_rectangle(rectangles):
 def get_disjointed_rectangles(text,page): 
     first_and_last_list=get_first_and_last(text)
     page_blocks=get_text_blocks(page)
+    page_width=get_page_width(page)
     rects=[]
     for needle in first_and_last_list:
         rect=get_match_blocks(needle,page_blocks)
-        if rect: 
-            rects.append(tuple_to_rect(rect))
+        if rect:
+            rect=tuple_to_rect(rect)
+            # x0=rect.x0
+            # x1=page_width
+            # y0=rect.y0
+            # y1=rect.y1
+            # tl=pymupdf.Point(x0,y0)
+            # br=pymupdf.Point(x1,y1)
+            # rect=pymupdf.Rect(tl,br)
+            rects.append(rect)
         else:
             return []
     return rects
