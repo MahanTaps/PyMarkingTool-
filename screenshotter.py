@@ -17,7 +17,7 @@ class ScreenShotter:
         batch_list=[]
         i=0
         for location in location_dict[key]:
-           batch_list.extend(self.take_screenshot(doc,location,label,i))
+           batch_list.append(self.take_screenshot(doc,location,label,i))
            i+=1
         return batch_list
         

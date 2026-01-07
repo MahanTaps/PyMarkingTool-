@@ -1,0 +1,70 @@
+Compare each entry between stem_list and q_list 
+Loop through q_list 
+If item starts with (a):
+Check qstem_list. 
+If it has no stem, set corresponding q_list entry to None until (a) is reached again in q_list
+If it has a stem, copy that value to all corresponding entries until (a) is reached again in q_list 
+
+Empty list 
+Loop through q_list: 
+If item starts with (a) and q_list has no stem: 
+Put 'None' in stem_list 
+Elif item starts with (a) and q_list has stem: 
+Put stem in stem_list
+
+Empty list
+Loop through q_list 
+If item starts with (a):
+Check qstem_list:
+If it has no stem, add None to empty list until (a) is reached again in q_list
+If it has a stem, add that stem to empty list until (a) is reached again in q_list 
+
+
+
+
+
+Start with this: 
+i=0
+for sublist in q_list:
+for item in sublist:
+code here
+i+=1
+
+
+
+Val=None 
+i=0
+a and stem:
+val=stem
+i+=1
+stem and not a: 
+a and no stem:
+val=None 
+i+=1
+no stem and not a 
+
+list.append(val)
+
+
+val=None 
+i=0
+if a and stem[i] has a stem: 
+val=stem
+i+=1 
+elif a and stem[i] has no stem:
+val=None 
+i+=1 
+list.append(val) 
+
+regex:
+^\(a\)
+
+35m 
+
+'QUESTION 1 \n \n(a) '
+'QUESTION 2 \n \nIf ( )\n(\n)(\n)(\n)\n2\n4\n4\nf x\nx\nx\nx\n=\n+\n−\n−\n then: \n \n(a) '
+'QUESTION 3 \n \nThe graphs of f and g have been sketched on the set of axes below. \n \n• \n( )\n(\n)\nlog\n2\nm\nf x\nx\n=\n+\n \n• \n( )\n4\ng x\nx\n= −+\n \n• B and C are the x- and y-intercept of the graph of f respectively. \n• \n(\n)\nA 3 ;1  lies on both f and g. \n• The dotted line through D with equation \n2\nx = − is the asymptote for f. \n \n \n \n(a) '
+'QUESTION 4 \n \n(a) '
+
+regex=r'QUESTION\s+\d+\s\n\s\n\(a\)\s'
+match=re.fullmatch(regex, 'QUESTION 1 \n \n(a) ')

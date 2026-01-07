@@ -22,7 +22,7 @@ class Math12IEBMaker(AbstractRectangleMaker):
             "sub_questions": r"(\([a-z0-9]\)\s.*[\s\S]+?)((?=^\([a-hj-z]\)|^(NATIONAL)|\Z))",
             "subsub_questions":r"(?<=\([0-9]\))(\s{3,}|$)",
             "question_identifiers":r"^\([a-z]{,3}\)\s|^\([0-9]\)\s",
-            "question_stems":r"QUESTION\s[0-9]+\s+([\S\s]+?)(?=^\(a\)\s)",
+            "question_stems":r"QUESTION\s[0-9]+\s+([\S\s]+?)(?<=^\(a\)\s)",
             "memo_raw_text":r"\([a-z0-9]+\)[\s\S]+?(?=\n\([a-z]+\)|\s\s\n\([0-9]\)|NATIONAL|\Z)",
             "memo_start_keys":r"\s\n"
         }

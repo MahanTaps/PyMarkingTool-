@@ -339,3 +339,34 @@ def get_stem_list(text,patterns):
     text_list=main_questions(patterns["main_questions"],text)
     stems_list=get_stems(text_list,patterns["question_stems"])
     return stems_list
+
+def get_stem_match(text,pattern):#More precise for getting stems 
+    match=re.search(pattern,text,re.MULTILINE)
+    match_text=match.group(1)
+    return match_text 
+
+def remove_empty_stems(list):#Removes the empty strings from a list 
+    full_list=[x for x in list if x!='\n']
+    return full_list
+
+
+
+def starts_with_a(string):
+    pattern=r'^\(a\)'
+    return bool(re.search(pattern,string))
+
+
+def has_no_stem(string):
+    regex=r'QUESTION\s+\d+\s\n\s\n\(a\)\s'
+    return bool(re.fullmatch(regex,string))
+
+# def map_stems(questions,stems):
+#     val=None
+#     i=0
+#     for q in questions:
+#         for subq in q:
+#             if starts_with_a(subq) and not has_no_stem(stems[i]):
+#                 val=stems[i]
+#                 i+=1
+#             elif 
+
