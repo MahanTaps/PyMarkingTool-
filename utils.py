@@ -150,33 +150,36 @@ def get_rectangle_list(question_texts,doc):
     rectangle_list=[]
     page=doc[page_num]
     for q in question_texts:
-        if type(q) is list: 
-            for subq in q:
-                while((get_rectangles(subq,page)==[])):
-                    page_num+=1
-                    page=doc[page_num]
-                rect=(get_rectangles(subq,page))
-                rect.x1= get_page_width(page)
-                rectangle_list.append((rect,page.number))
-                
-        else:
-                rects=get_rectangles(q,page)
-                while(not rects):
-                    rects=get_disjointed_rectangles(q,page)
-                    if rects:
-                        rects=merged_rectangle(rects)
-                        break
-                    page_num+=1
-                    if(not page_num<len(doc)):
-                       print("Not found!:\n",q)
-                       break
-                    page=doc[page_num]
+        if q is not None:
+            if type(q) is list: 
+                for subq in q:
+                    while((get_rectangles(subq,page)==[])):
+                        page_num+=1
+                        page=doc[page_num]
+                    rect=(get_rectangles(subq,page))
+                    rect.x1= get_page_width(page)
+                    rectangle_list.append((rect,page.number))
+                    
+            else:
                     rects=get_rectangles(q,page)
-    
-                rect=(rects)
-                rect.x1=get_page_width(page)
-                rectangle_list.append((rect,page.number))
-                #make_clipping(page,rect,page.number)
+                    while(not rects):
+                        rects=get_disjointed_rectangles(q,page)
+                        if rects:
+                            rects=merged_rectangle(rects)
+                            break
+                        page_num+=1
+                        if(not page_num<len(doc)):
+                            print("Not found!:\n",q)
+                            break
+                        page=doc[page_num]
+                        rects=get_rectangles(q,page)
+        
+                    rect=(rects)
+                    rect.x1=get_page_width(page)
+                    rectangle_list.append((rect,page.number))
+                    #make_clipping(page,rect,page.number)
+        else:
+            rectangle_list.append(None)
     print(rectangle_list)
     print("We found", len(rectangle_list)," rectangles.")
     return rectangle_list
@@ -353,20 +356,60 @@ def remove_empty_stems(list):#Removes the empty strings from a list
 
 def starts_with_a(string):
     pattern=r'^\(a\)'
-    return bool(re.search(pattern,string))
+    starts_with_a=bool(re.search(pattern,string))
+    return starts_with_a
 
 
 def has_no_stem(string):
     regex=r'QUESTION\s+\d+\s\n\s\n\(a\)\s'
-    return bool(re.fullmatch(regex,string))
+    has_no_stem=bool(re.fullmatch(regex,string))
+    return has_no_stem
+
+# def get_stem_if_valid(query,stem,entry,itervar):
+#     if starts_with_a(query) and not has_no_stem(stem):
+#         entry=stem
+#         itervar+=1
+#     elif starts_with_a(query) and has_no_stem(stem):
+#         entry=None
+#         itervar+=1
+#     return entry,itervar
 
 # def map_stems(questions,stems):
 #     val=None
 #     i=0
+#     mapped_stems=[]
 #     for q in questions:
-#         for subq in q:
-#             if starts_with_a(subq) and not has_no_stem(stems[i]):
-#                 val=stems[i]
-#                 i+=1
-#             elif 
+#         if type(q) is list: 
+#             for subq in q:
+#                 val,i=get_stem_if_valid(subq,stems[i],val,i)
+#                 mapped_stems.append(val)
 
+#         else:
+#             val,i=get_stem_if_valid(q,stems[i],val,i)
+#             mapped_stems.append(val)
+#     return mapped_stems
+
+def map_stems(questions,stems):
+    val=None
+    i=0
+    mapped_stems=[]
+    for q in questions:
+        if type(q) is list: 
+            for subq in q:
+                if starts_with_a(subq) and not has_no_stem(stems[i]):
+                    val=stems[i]
+                    i+=1
+                elif starts_with_a(subq) and has_no_stem(stems[i]):
+                    val=None
+                    i+=1
+                mapped_stems.append(val)
+
+        else:
+            if starts_with_a(q) and not has_no_stem(stems[i]):
+                    val=stems[i]
+                    i+=1
+            elif starts_with_a(q) and has_no_stem(stems[i]):
+                val=None
+                i+=1
+            mapped_stems.append(val)
+    return mapped_stems

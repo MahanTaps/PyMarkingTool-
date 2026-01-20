@@ -6,11 +6,13 @@ class ScreenShotter:
         self.batch_filenames=self.prepare_screenshots(self.q_doc,self.a_doc,locations)
 
     def take_screenshot(self,doc,location,filename,q_num):
-        page=doc[location[1]]
-        page.set_cropbox(location[0])
-        pix= page.get_pixmap()
-        file_title=filename+"\Question "+str(q_num)+".png"
-        pix.save(file_title)
+        file_title=None
+        if location:
+            page=doc[location[1]]
+            page.set_cropbox(location[0])
+            pix= page.get_pixmap()
+            file_title=filename+"\Question "+str(q_num)+".png"
+            pix.save(file_title)
         return file_title
     
     def take_screenshots_from_batch(self,doc,location_dict,key,label):

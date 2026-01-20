@@ -41,6 +41,7 @@ class Math12IEBMaker(AbstractRectangleMaker):
     def question_stem_rectangles(self):
     #use get_stems to get the list, then pass it to the rectangles function to get the rects. 
         qstem_list=utils.get_stem_list(self.raw_text[0],self.regex_separators())
+        qstem_list=utils.map_stems(self.q_list,qstem_list)
         qstem_rects=utils.get_rectangle_list(qstem_list,self.q_doc)
         return qstem_rects 
     
