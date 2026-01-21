@@ -12,8 +12,8 @@ class PaperExporter:
         print(self.img_locations)
     
     def make_item(self,val1,val2,val3,val4):
-        keys=['q_num','sect','scored','avail','error','lost','q_location','q_stem','answer']
-        vals=[val1,None,None,None,None,None,val2,val3,val4]
+        keys=['q_num','sect','scored','avail','error','lost','q_location','q_stem','answer','comment']
+        vals=[val1,None,None,None,None,None,val2,val3,val4,None]
         return {k:v for (k,v) in zip(keys,vals)}
 
     def prep_export(self):
