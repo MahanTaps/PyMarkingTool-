@@ -1,6 +1,7 @@
 from screenshotter import ScreenShotter
 from math12iebmaker import Math12IEBMaker
 from itertools import zip_longest
+from sqlite3maker import Sqlite3Model
 import pymupdf
 
 class PaperExporter:
@@ -9,6 +10,7 @@ class PaperExporter:
         self.rect_locations=self.rectmaker.export_rectangles()
         self.screenshotter=ScreenShotter(q_doc,a_doc,self.rect_locations)
         self.img_locations=self.screenshotter.batch_filenames
+        self.sqlexporter= Sqlite3Model()
         print(self.img_locations)
     
     def make_item(self,val1,val2,val3,val4):
@@ -25,6 +27,10 @@ class PaperExporter:
         for a,b,c,d in zip_longest(titles,q_locations,qstem_locations,a_locations):
             paper_data.append(self.make_item(a,b,c,d))
         return paper_data
+    
+    def do_export(self):
+        data=self.prep_export()
+        self.sqlexporter.insert_rows(data)
 
             
     
