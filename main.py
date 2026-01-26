@@ -15,7 +15,7 @@ class Main(QtWidgets.QMainWindow,Ui_MainWindow):
         self.btn_generateLayout.clicked.connect(self.warn_user_to_check_match)
     #Slots 
     def loadFileDialog(self,fileType):
-        fname=QFileDialog.getOpenFileName(self,"Select the document","C:/","PDF Files (*.pdf)")
+        fname=QFileDialog.getOpenFileName(self,"Select the document","C:/","PDF Files (*.pdf)")[0]
         #Output filename to screen 
         if (fname and fileType=="paper"):
             self.label_pastPaperFileName.setText(str(fname))
@@ -42,12 +42,15 @@ class Main(QtWidgets.QMainWindow,Ui_MainWindow):
         retval=warning_box.exec_()
         if retval==QMessageBox.Yes:
             self.show_layout_window()
+            
     
 
- 
+
     #Other Functions 
     def show_layout_window(self):
-        viewer=QuestionAnswerViewer()
+        paper_location=(self.label_pastPaperFileName.text())
+        memo_location=(self.label_memoFileName.text())
+        viewer=QuestionAnswerViewer(paper_location,memo_location)
         viewer.exec_()
 
 
