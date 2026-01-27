@@ -1,10 +1,14 @@
 import sqlite3
+from paperexporter import PaperExporter
 class Sqlite3Model:
-    def __init__(self):
+    def __init__(self,q_file,memo_file):
         self.con= sqlite3.connect("test.db") #create db in memory and connect to it
         print(self.con)
         self.cur=self.con.cursor()
         self.create_table()
+        exporter=PaperExporter(q_file,memo_file)
+        data=exporter.do_export()
+        self.insert_rows(data)
 
     def create_table(self):
         self.cur.execute("CREATE TABLE question(q_num TEXT, sect TEXT, scored INT,avail INT, error INT, lost INT,q_location TEXT,q_stem TEXT,answer TEXT,comment TEXT)")
