@@ -1,0 +1,10 @@
+sql model gets data from paper exporter.  
+Then uses it to fill out its tables.
+Function for viewing pictures: 
+def clicker(self):
+    fname = QFileDialog.getOpenFileName(self, "Open File", "")
+
+    # Open The Image
+    self.pixmap = QPixmap(fname[0])
+    # Add Pic to label
+    self.label.setPixmap(self.pixmap)
