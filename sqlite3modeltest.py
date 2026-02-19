@@ -14,9 +14,14 @@ else:
 model= QSqlTableModel(None,db)
 model.setTable("question")
 model.select() #populate table with data 
-print("Record:",model.record(0).value('answer'))
+print("Record:",model.record(1).value("answer"))
 table_view=QTableView()
 table_view.setModel(model)
-sys.exit(app.exec())
-print('Current Index:',table_view.currentIndex())
+print("Table view set up!")
+print("Setting Index...")
+#Try to create a QModelIndex item here and pass it to rootIndex 19/02/2026 
+table_view.setCurrentIndex(table_view.rootIndex())
+print('Current Index:',table_view.currentIndex().isValid())
+#sys.exit(app.exec())
+
 #It seems like there's an infinite loop going on? Maybe I need to set the index first
