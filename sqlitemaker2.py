@@ -13,12 +13,10 @@ class Sqlite3Model:
         exporter=PaperExporter(q_file,memo_file)
         data=exporter.do_export()
         self.insert_rows(data)
-        db= QSqlDatabase.addDatabase("QSQLITE")
-        db.setDatabaseName("test.db")
-        if(db.open()):
-            print("Yeah!")
-        else:
-            print("Nah..")
+        self.db=self.create_database_connection()
+        self.model=self.create_model(self.db)
+
+
 
     def create_table(self):
         self.cur.execute("CREATE TABLE question(q_num TEXT, sect TEXT, scored INT,avail INT, error INT, lost INT,q_location TEXT,q_stem TEXT,answer TEXT,comment TEXT)")
@@ -35,5 +33,13 @@ class Sqlite3Model:
         model= QSqlTableModel(None,db)
         model.setTable("question")
         model.select() #populate table with data 
+    
+    def create_database_connection(self):
+        db= QSqlDatabase.addDatabase("QSQLITE")
+        db.setDatabaseName("test.db")
+        if (db.open()):
+            return db 
+        else:
+            return None
 
         
