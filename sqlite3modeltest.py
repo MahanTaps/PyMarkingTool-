@@ -26,6 +26,7 @@ table_view.setRootIndex(model.index(0,0))
 table_view.setCurrentIndex(model.index(0,6))
 print('Current Index:',table_view.currentIndex().isValid())
 print('Checking Data:',model.data(table_view.currentIndex()))
+print('Row Count:',model.rowCount())
 #sys.exit(app.exec())
 
 #Selecting a row 

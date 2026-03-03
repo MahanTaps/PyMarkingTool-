@@ -13,19 +13,6 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="questionLabel">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>63</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Question:</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="questionImageLabel">
    <property name="geometry">
     <rect>
@@ -38,6 +25,53 @@
    <property name="text">
     <string>TextLabel</string>
    </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>190</y>
+     <width>160</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="mainLayout">
+    <item>
+     <layout class="QVBoxLayout" name="layout_questionTitle">
+      <item>
+       <widget class="QLabel" name="questionLabel">
+        <property name="text">
+         <string>Question:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="layout_toolButtons">
+        <item>
+         <widget class="QToolButton" name="prevToolButton">
+          <property name="text">
+           <string>&lt;</string>
+          </property>
+          <property name="arrowType">
+           <enum>Qt::NoArrow</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="nextToolButton">
+          <property name="text">
+           <string>&gt;</string>
+          </property>
+          <property name="arrowType">
+           <enum>Qt::NoArrow</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

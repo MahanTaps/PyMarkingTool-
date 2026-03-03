@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from ui_question_answer_viewer import Ui_QuestionAnswerViewer
-from sqlite3maker import Sqlite3Model
+from sqlitemaker2 import Sqlite3Model
 import sys
 
 class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
