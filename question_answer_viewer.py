@@ -7,7 +7,13 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
     def __init__(self,q_filename,a_filename):
         QtWidgets.QDialog.__init__(self)
         self.setupUi(self)
-        self.model=Sqlite3Model(q_filename,a_filename)
+        self.model=Sqlite3Model(q_filename,a_filename).model
+        self.currentIndex=0
+    
+    def initialize_viewer(self):
+        self.model.record
+    #Slots 
+    on_
 
     
 if __name__=="__main__":

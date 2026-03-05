@@ -23,9 +23,10 @@ print("Table view set up!")
 print("Setting Index...")
 #Try to create a QModelIndex item here and pass it to rootIndex 19/02/2026 
 table_view.setRootIndex(model.index(0,0))
-table_view.setCurrentIndex(model.index(0,6))
+table_view.setCurrentIndex(model.index(0,0))
 print('Current Index:',table_view.currentIndex().isValid())
-print('Checking Data:',model.data(table_view.currentIndex()))
+print('Checking Data:',model.data(model.index(0,0)))
+print('Checking Record: ',model.record(0).value(0))
 print('Row Count:',model.rowCount())
 #sys.exit(app.exec())
 
