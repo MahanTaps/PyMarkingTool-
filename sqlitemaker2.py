@@ -32,7 +32,8 @@ class Sqlite3Model:
     def create_model(self,db):
         model= QSqlTableModel(None,db)
         model.setTable("question")
-        model.select() #populate table with data 
+        model.select() #populate table with data
+        return model
     
     def create_database_connection(self):
         db= QSqlDatabase.addDatabase("QSQLITE")
