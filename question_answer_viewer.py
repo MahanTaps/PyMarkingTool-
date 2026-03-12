@@ -1,6 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QPixmap
 from ui_question_answer_viewer import Ui_QuestionAnswerViewer
 from sqlitemaker2 import Sqlite3Model
+import os.path
 import sys
 
 class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
@@ -11,15 +13,40 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
         self.currentIndex=0
         self.initialize_viewer()
         self.model_row_count=self.model.rowCount()
+        self.questionImageLabel.setScaledContents(True)
+        self.answerImageLabel.setScaledContents(True)
+        self.stemImageLabel.setScaledContents(True)
         #Connections
         self.nextToolButton.clicked.connect(self.btn_nextButton_clicked)
         self.prevToolButton.clicked.connect(self.btn_prevButton_clicked)
 
     def initialize_viewer(self):
         self.set_question_title(self.questionLabel, self.model.record(0).value(0))
+        self.questionImageLabel.setPixmap(self.make_pixmap(0,"q"))
+        self.answerImageLabel.setPixmap(self.make_pixmap(0,"a"))
+        self.stemImageLabel.setPixmap(self.make_pixmap(0,"s"))
+
     
     def update_viewer(self,currentIndex):
         self.set_question_title(self.questionLabel, self.model.record(currentIndex).value(0))
+        self.questionImageLabel.setPixmap(self.make_pixmap(currentIndex,"q"))
+        self.answerImageLabel.setPixmap(self.make_pixmap(currentIndex,"a"))
+        self.stemImageLabel.setPixmap(self.make_pixmap(currentIndex,"s"))
+
+
+
+    def make_pixmap(self,currentIndex,key):
+        pixmap=None
+        if key == "q":
+            fname=self.model.record(currentIndex).value(6)
+            pixmap=QPixmap(fname)
+        elif key=="s":
+            fname=self.model.record(currentIndex).value(7)
+            pixmap=QPixmap(fname)
+        elif key=="a":
+            fname=self.model.record(currentIndex).value(8)
+            pixmap=QPixmap(fname)
+        return pixmap
 
 
     #Slots 

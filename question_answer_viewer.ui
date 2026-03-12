@@ -13,35 +13,39 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="questionImageLabel">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>40</y>
-     <width>63</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>190</y>
-     <width>160</width>
-     <height>80</height>
+     <x>50</x>
+     <y>20</y>
+     <width>381</width>
+     <height>611</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="mainLayout">
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
      <layout class="QVBoxLayout" name="layout_questionTitle">
       <item>
        <widget class="QLabel" name="questionLabel">
         <property name="text">
          <string>Question:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="stemImageLabel">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="questionImageLabel">
+        <property name="text">
+         <string>TextLabel</string>
         </property>
        </widget>
       </item>
@@ -70,6 +74,13 @@
        </layout>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="answerImageLabel">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

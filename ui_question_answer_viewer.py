@@ -15,11 +15,8 @@ class Ui_QuestionAnswerViewer(object):
     def setupUi(self, QuestionAnswerViewer):
         QuestionAnswerViewer.setObjectName("QuestionAnswerViewer")
         QuestionAnswerViewer.resize(1060, 738)
-        self.questionImageLabel = QtWidgets.QLabel(QuestionAnswerViewer)
-        self.questionImageLabel.setGeometry(QtCore.QRect(20, 40, 63, 20))
-        self.questionImageLabel.setObjectName("questionImageLabel")
         self.verticalLayoutWidget = QtWidgets.QWidget(QuestionAnswerViewer)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(230, 190, 160, 80))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(50, 20, 381, 611))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.mainLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.mainLayout.setContentsMargins(0, 0, 0, 0)
@@ -29,6 +26,12 @@ class Ui_QuestionAnswerViewer(object):
         self.questionLabel = QtWidgets.QLabel(self.verticalLayoutWidget)
         self.questionLabel.setObjectName("questionLabel")
         self.layout_questionTitle.addWidget(self.questionLabel)
+        self.stemImageLabel = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.stemImageLabel.setObjectName("stemImageLabel")
+        self.layout_questionTitle.addWidget(self.stemImageLabel)
+        self.questionImageLabel = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.questionImageLabel.setObjectName("questionImageLabel")
+        self.layout_questionTitle.addWidget(self.questionImageLabel)
         self.layout_toolButtons = QtWidgets.QHBoxLayout()
         self.layout_toolButtons.setObjectName("layout_toolButtons")
         self.prevToolButton = QtWidgets.QToolButton(self.verticalLayoutWidget)
@@ -41,6 +44,9 @@ class Ui_QuestionAnswerViewer(object):
         self.layout_toolButtons.addWidget(self.nextToolButton)
         self.layout_questionTitle.addLayout(self.layout_toolButtons)
         self.mainLayout.addLayout(self.layout_questionTitle)
+        self.answerImageLabel = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.answerImageLabel.setObjectName("answerImageLabel")
+        self.mainLayout.addWidget(self.answerImageLabel)
 
         self.retranslateUi(QuestionAnswerViewer)
         QtCore.QMetaObject.connectSlotsByName(QuestionAnswerViewer)
@@ -48,10 +54,12 @@ class Ui_QuestionAnswerViewer(object):
     def retranslateUi(self, QuestionAnswerViewer):
         _translate = QtCore.QCoreApplication.translate
         QuestionAnswerViewer.setWindowTitle(_translate("QuestionAnswerViewer", "Dialog"))
-        self.questionImageLabel.setText(_translate("QuestionAnswerViewer", "TextLabel"))
         self.questionLabel.setText(_translate("QuestionAnswerViewer", "Question:"))
+        self.stemImageLabel.setText(_translate("QuestionAnswerViewer", "TextLabel"))
+        self.questionImageLabel.setText(_translate("QuestionAnswerViewer", "TextLabel"))
         self.prevToolButton.setText(_translate("QuestionAnswerViewer", "<"))
         self.nextToolButton.setText(_translate("QuestionAnswerViewer", ">"))
+        self.answerImageLabel.setText(_translate("QuestionAnswerViewer", "TextLabel"))
 
 
 if __name__ == "__main__":
