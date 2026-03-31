@@ -1,6 +1,7 @@
 from MainWindow import Ui_MainWindow
 from question_answer_viewer import QuestionAnswerViewer
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtWidgets import QMessageBox
 import sys
@@ -51,6 +52,8 @@ class Main(QtWidgets.QMainWindow,Ui_MainWindow):
         paper_location=(self.label_pastPaperFileName.text())
         memo_location=(self.label_memoFileName.text())
         viewer=QuestionAnswerViewer(paper_location,memo_location)
+        #viewer.setWindowFlags(viewer.windowFlags|Qt.WindowCloseButtonHint | Qt.WindowType_Mask)
+        viewer.showFullScreen()
         viewer.exec_()
 
 

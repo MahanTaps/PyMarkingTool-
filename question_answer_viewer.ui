@@ -13,74 +13,173 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QWidget" name="horizontalLayoutWidget_4">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>20</y>
-     <width>381</width>
-     <height>611</height>
+     <x>10</x>
+     <y>50</y>
+     <width>551</width>
+     <height>461</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="mainLayout">
-    <property name="bottomMargin">
-     <number>0</number>
+   <layout class="QHBoxLayout" name="mainLayout">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetDefaultConstraint</enum>
     </property>
     <item>
-     <layout class="QVBoxLayout" name="layout_questionTitle">
+     <layout class="QVBoxLayout" name="layout_imageViewer">
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
       <item>
-       <widget class="QLabel" name="questionLabel">
-        <property name="text">
-         <string>Question:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="stemImageLabel">
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="questionImageLabel">
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="layout_toolButtons">
+       <layout class="QVBoxLayout" name="layout_questionTitle">
         <item>
-         <widget class="QToolButton" name="prevToolButton">
+         <widget class="QLabel" name="questionLabel">
           <property name="text">
-           <string>&lt;</string>
-          </property>
-          <property name="arrowType">
-           <enum>Qt::NoArrow</enum>
+           <string>Question:</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QToolButton" name="nextToolButton">
+         <widget class="QLabel" name="stemImageLabel">
           <property name="text">
-           <string>&gt;</string>
-          </property>
-          <property name="arrowType">
-           <enum>Qt::NoArrow</enum>
+           <string>TextLabel</string>
           </property>
          </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="questionImageLabel">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="layout_toolButtons">
+          <item>
+           <widget class="QToolButton" name="prevToolButton">
+            <property name="text">
+             <string>&lt;</string>
+            </property>
+            <property name="arrowType">
+             <enum>Qt::NoArrow</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="nextToolButton">
+            <property name="text">
+             <string>&gt;</string>
+            </property>
+            <property name="arrowType">
+             <enum>Qt::NoArrow</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="answerImageLabel">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>50</y>
+     <width>152</width>
+     <height>461</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="layout_review">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetDefaultConstraint</enum>
+    </property>
+    <item>
+     <layout class="QHBoxLayout" name="layout_sectionTitle">
+      <item>
+       <widget class="QLabel" name="sectionTitleLabel">
+        <property name="text">
+         <string>Section Title:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="sectionComboBox"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="layout_marks">
+      <item>
+       <layout class="QHBoxLayout" name="layout_MarksScored">
+        <item>
+         <widget class="QLabel" name="marksScoredLabel">
+          <property name="text">
+           <string>Marks Scored:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="marksScoredEdit"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="layout_MarksAvailable">
+        <item>
+         <widget class="QLabel" name="marksAvailableLabel">
+          <property name="text">
+           <string>Marks Available:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="marksAvailableEdit"/>
         </item>
        </layout>
       </item>
      </layout>
     </item>
     <item>
-     <widget class="QLabel" name="answerImageLabel">
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
+     <layout class="QVBoxLayout" name="layout_errorType">
+      <item>
+       <widget class="QLabel" name="errorLabel">
+        <property name="text">
+         <string>Errror Type: </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="errorComboBox"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="layout_comments">
+      <item>
+       <widget class="QLabel" name="commentsLabel">
+        <property name="text">
+         <string>Comments:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="commentsEdit"/>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
