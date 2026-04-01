@@ -53,7 +53,6 @@ class Main(QtWidgets.QMainWindow,Ui_MainWindow):
         memo_location=(self.label_memoFileName.text())
         viewer=QuestionAnswerViewer(paper_location,memo_location)
         #viewer.setWindowFlags(viewer.windowFlags|Qt.WindowCloseButtonHint | Qt.WindowType_Mask)
-        viewer.showFullScreen()
         viewer.exec_()
 
 

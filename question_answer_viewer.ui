@@ -6,183 +6,230 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1060</width>
-    <height>738</height>
+    <width>815</width>
+    <height>737</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="horizontalLayoutWidget_4">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>50</y>
-     <width>551</width>
-     <height>461</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="mainLayout">
-    <property name="sizeConstraint">
-     <enum>QLayout::SetDefaultConstraint</enum>
-    </property>
-    <item>
-     <layout class="QVBoxLayout" name="layout_imageViewer">
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <layout class="QVBoxLayout" name="layout_questionTitle">
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="questionLabel">
+       <property name="text">
+        <string>Question:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1" rowspan="3">
+      <widget class="QGroupBox" name="groupBox">
+       <property name="title">
+        <string>Review </string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QLabel" name="questionLabel">
-          <property name="text">
-           <string>Question:</string>
+         <layout class="QVBoxLayout" name="layout_review">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetDefaultConstraint</enum>
           </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="stemImageLabel">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="questionImageLabel">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="layout_toolButtons">
           <item>
-           <widget class="QToolButton" name="prevToolButton">
-            <property name="text">
-             <string>&lt;</string>
-            </property>
-            <property name="arrowType">
-             <enum>Qt::NoArrow</enum>
-            </property>
-           </widget>
+           <layout class="QHBoxLayout" name="layout_sectionTitle">
+            <item>
+             <widget class="QLabel" name="sectionTitleLabel">
+              <property name="text">
+               <string>Section Title:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="sectionComboBox"/>
+            </item>
+           </layout>
           </item>
           <item>
-           <widget class="QToolButton" name="nextToolButton">
-            <property name="text">
-             <string>&gt;</string>
+           <layout class="QVBoxLayout" name="layout_marks">
+            <item>
+             <layout class="QHBoxLayout" name="layout_MarksScored">
+              <item>
+               <widget class="QLabel" name="marksScoredLabel">
+                <property name="text">
+                 <string>Marks Scored:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="marksScoredEdit">
+                <property name="maximumSize">
+                 <size>
+                  <width>71</width>
+                  <height>21</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="layout_MarksAvailable">
+              <item>
+               <widget class="QLabel" name="marksAvailableLabel">
+                <property name="text">
+                 <string>Marks Available:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="marksAvailableEdit">
+                <property name="maximumSize">
+                 <size>
+                  <width>71</width>
+                  <height>21</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="layout_errorType">
+            <property name="spacing">
+             <number>1</number>
             </property>
-            <property name="arrowType">
-             <enum>Qt::NoArrow</enum>
+            <item>
+             <widget class="QLabel" name="errorLabel">
+              <property name="text">
+               <string>Errror Type: </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="errorComboBox"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="layout_comments">
+            <property name="spacing">
+             <number>1</number>
             </property>
-           </widget>
+            <item>
+             <widget class="QLabel" name="commentsLabel">
+              <property name="maximumSize">
+               <size>
+                <width>121</width>
+                <height>51</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Comments:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTextEdit" name="commentsEdit">
+              <property name="maximumSize">
+               <size>
+                <width>157</width>
+                <height>192</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </item>
        </layout>
-      </item>
-      <item>
-       <widget class="QLabel" name="answerImageLabel">
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>570</x>
-     <y>50</y>
-     <width>152</width>
-     <height>461</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="layout_review">
-    <property name="sizeConstraint">
-     <enum>QLayout::SetDefaultConstraint</enum>
-    </property>
-    <item>
-     <layout class="QHBoxLayout" name="layout_sectionTitle">
-      <item>
-       <widget class="QLabel" name="sectionTitleLabel">
-        <property name="text">
-         <string>Section Title:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="sectionComboBox"/>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QVBoxLayout" name="layout_marks">
-      <item>
-       <layout class="QHBoxLayout" name="layout_MarksScored">
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QGroupBox" name="groupBox_3">
+       <property name="title">
+        <string>Possible Context:</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <widget class="QLabel" name="marksScoredLabel">
+         <widget class="QLabel" name="stemImageLabel">
+          <property name="minimumSize">
+           <size>
+            <width>347</width>
+            <height>151</height>
+           </size>
+          </property>
           <property name="text">
-           <string>Marks Scored:</string>
+           <string>TextLabel</string>
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QLineEdit" name="marksScoredEdit"/>
-        </item>
        </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="layout_MarksAvailable">
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="questionImageLabel">
+       <property name="minimumSize">
+        <size>
+         <width>347</width>
+         <height>211</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <layout class="QHBoxLayout" name="layout_toolButtons">
+       <item>
+        <widget class="QToolButton" name="prevToolButton">
+         <property name="text">
+          <string>&lt;</string>
+         </property>
+         <property name="arrowType">
+          <enum>Qt::NoArrow</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="nextToolButton">
+         <property name="text">
+          <string>&gt;</string>
+         </property>
+         <property name="arrowType">
+          <enum>Qt::NoArrow</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="4" column="0">
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="title">
+        <string>Answer Key: </string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QLabel" name="marksAvailableLabel">
+         <widget class="QLabel" name="answerImageLabel">
+          <property name="minimumSize">
+           <size>
+            <width>349</width>
+            <height>131</height>
+           </size>
+          </property>
           <property name="text">
-           <string>Marks Available:</string>
+           <string>TextLabel</string>
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QLineEdit" name="marksAvailableEdit"/>
-        </item>
        </layout>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QVBoxLayout" name="layout_errorType">
-      <item>
-       <widget class="QLabel" name="errorLabel">
-        <property name="text">
-         <string>Errror Type: </string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="errorComboBox"/>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QVBoxLayout" name="layout_comments">
-      <item>
-       <widget class="QLabel" name="commentsLabel">
-        <property name="text">
-         <string>Comments:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QTextEdit" name="commentsEdit"/>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>
