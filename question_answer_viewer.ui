@@ -13,11 +13,17 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
+  <layout class="QGridLayout" name="gridLayout_2" columnminimumwidth="0">
    <item row="0" column="0">
-    <layout class="QGridLayout" name="gridLayout">
+    <layout class="QGridLayout" name="gridLayout" rowstretch="0,1,1,0,1" columnstretch="1,0">
      <item row="0" column="0">
       <widget class="QLabel" name="questionLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string>Question:</string>
        </property>
@@ -25,6 +31,12 @@
      </item>
      <item row="0" column="1" rowspan="3">
       <widget class="QGroupBox" name="groupBox">
+       <property name="maximumSize">
+        <size>
+         <width>189</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="title">
         <string>Review </string>
        </property>
@@ -148,17 +160,23 @@
      </item>
      <item row="1" column="0">
       <widget class="QGroupBox" name="groupBox_3">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="title">
         <string>Possible Context:</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
          <widget class="QLabel" name="stemImageLabel">
-          <property name="minimumSize">
-           <size>
-            <width>347</width>
-            <height>151</height>
-           </size>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
           <property name="text">
            <string>TextLabel</string>
@@ -170,11 +188,11 @@
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="questionImageLabel">
-       <property name="minimumSize">
-        <size>
-         <width>347</width>
-         <height>211</height>
-        </size>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
        <property name="text">
         <string>TextLabel</string>
@@ -213,11 +231,11 @@
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="QLabel" name="answerImageLabel">
-          <property name="minimumSize">
-           <size>
-            <width>349</width>
-            <height>131</height>
-           </size>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
           <property name="text">
            <string>TextLabel</string>
