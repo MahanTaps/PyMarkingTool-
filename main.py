@@ -52,6 +52,7 @@ class Main(QtWidgets.QMainWindow,Ui_MainWindow):
         paper_location=(self.label_pastPaperFileName.text())
         memo_location=(self.label_memoFileName.text())
         viewer=QuestionAnswerViewer(paper_location,memo_location)
+        viewer.setWindowFlag(Qt.WindowMaximizeButtonHint, True)
         #viewer.setWindowFlags(viewer.windowFlags|Qt.WindowCloseButtonHint | Qt.WindowType_Mask)
         viewer.exec_()
 
