@@ -148,6 +148,9 @@ class Ui_QuestionAnswerViewer(object):
         self.commentsEdit.setMaximumSize(QtCore.QSize(157, 192))
         self.commentsEdit.setObjectName("commentsEdit")
         self.layout_comments.addWidget(self.commentsEdit)
+        self.saveButton = QtWidgets.QPushButton(self.groupBox)
+        self.saveButton.setObjectName("saveButton")
+        self.layout_comments.addWidget(self.saveButton)
         self.layout_review.addLayout(self.layout_comments)
         self.verticalLayout.addLayout(self.layout_review)
         self.gridLayout.addWidget(self.groupBox, 0, 1, 1, 1)
@@ -173,6 +176,7 @@ class Ui_QuestionAnswerViewer(object):
         self.marksAvailableLabel.setText(_translate("QuestionAnswerViewer", "Marks Available:"))
         self.errorLabel.setText(_translate("QuestionAnswerViewer", "Errror Type: "))
         self.commentsLabel.setText(_translate("QuestionAnswerViewer", "Comments:"))
+        self.saveButton.setText(_translate("QuestionAnswerViewer", "Save"))
 
 
 if __name__ == "__main__":

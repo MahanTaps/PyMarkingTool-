@@ -22,6 +22,7 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
 
     def initialize_viewer(self):
         self.set_question_title(self.questionLabel, self.model.record(0).value(0))
+        self.saveButton.setEnabled(False)
         self.questionImageLabel.setPixmap(self.make_pixmap(0,"q"))
         self.answerImageLabel.setPixmap(self.make_pixmap(0,"a"))
         self.stemImageLabel.setPixmap(self.make_pixmap(0,"s"))
