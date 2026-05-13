@@ -19,6 +19,13 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
         #Connections
         self.nextToolButton.clicked.connect(self.btn_nextButton_clicked)
         self.prevToolButton.clicked.connect(self.btn_prevButton_clicked)
+        #For the save button 
+        self.sectionComboBox.currentIndexChanged.connect(self.fields_changed)
+        self.marksScoredEdit.textChanged.connect(self.fields_changed)
+        self.marksAvailableEdit.textChanged.connect(self.fields_changed)
+        self.errorComboBox.currentIndexChanged.connect(self.fields_changed)
+        self.commentsEdit.textChanged.connect(self.fields_changed)
+
 
     def initialize_viewer(self):
         self.set_question_title(self.questionLabel, self.model.record(0).value(0))
@@ -50,6 +57,7 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
         return pixmap
 
 
+    
     #Slots 
     def btn_nextButton_clicked(self):
         print(self.currentIndex)
@@ -62,9 +70,15 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
         if(self.currentIndex>0):
             self.currentIndex-=1
         self.update_viewer(self.currentIndex)
+    
+    def fields_changed(self):
+        print("Fields changed!")
+        if (not self.saveButton.isEnabled()):
+            self.saveButton.setEnabled(True)
 
     def set_question_title(self,label,text):
         label.setText("Question: "+text)
+
 
 
 if __name__=="__main__":
