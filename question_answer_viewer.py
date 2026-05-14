@@ -2,6 +2,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QPixmap
 from ui_question_answer_viewer import Ui_QuestionAnswerViewer
 from sqlitemaker2 import Sqlite3Model
+from PyQt5.QtCore import QTimer
 import os.path
 import sys
 
@@ -16,15 +17,19 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
         self.questionImageLabel.setScaledContents(True)
         self.answerImageLabel.setScaledContents(True)
         self.stemImageLabel.setScaledContents(True)
+        #Timer setup
+        self.timer=QTimer()
+        self.timer.setSingleShot(True)
         #Connections
         self.nextToolButton.clicked.connect(self.btn_nextButton_clicked)
         self.prevToolButton.clicked.connect(self.btn_prevButton_clicked)
-        #For the save button 
-        self.sectionComboBox.currentIndexChanged.connect(self.fields_changed)
-        self.marksScoredEdit.textChanged.connect(self.fields_changed)
-        self.marksAvailableEdit.textChanged.connect(self.fields_changed)
-        self.errorComboBox.currentIndexChanged.connect(self.fields_changed)
-        self.commentsEdit.textChanged.connect(self.fields_changed)
+        #Connections for the save button 
+        self.sectionComboBox.currentIndexChanged.connect(self.start_timer)
+        self.marksScoredEdit.textChanged.connect(self.start_timer)
+        self.marksAvailableEdit.textChanged.connect(self.start_timer)
+        self.errorComboBox.currentIndexChanged.connect(self.start_timer)
+        self.commentsEdit.textChanged.connect(self.start_timer)
+        self.timer.timeout.connect(self.fields_changed)
 
 
     def initialize_viewer(self):
@@ -40,6 +45,15 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
         self.questionImageLabel.setPixmap(self.make_pixmap(currentIndex,"q"))
         self.answerImageLabel.setPixmap(self.make_pixmap(currentIndex,"a"))
         self.stemImageLabel.setPixmap(self.make_pixmap(currentIndex,"s"))
+
+    def switch_tool_buttons(self,on_or_off):
+        val=None
+        if on_or_off=="on":
+            val=True
+        elif on_or_off=="off":
+            val=False
+        self.nextToolButton.setEnabled(val)
+        self.prevToolButton.setEnabled(val)
 
 
 
@@ -75,10 +89,14 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
         print("Fields changed!")
         if (not self.saveButton.isEnabled()):
             self.saveButton.setEnabled(True)
+            self.switch_tool_buttons("off")
 
     def set_question_title(self,label,text):
         label.setText("Question: "+text)
-
+    
+    def start_timer(self):
+        print("Timer started!")
+        self.timer.start(2000)
 
 
 if __name__=="__main__":
