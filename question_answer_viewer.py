@@ -30,6 +30,7 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
         self.errorComboBox.currentIndexChanged.connect(self.start_timer)
         self.commentsEdit.textChanged.connect(self.start_timer)
         self.timer.timeout.connect(self.fields_changed)
+        self.saveButton.clicked.connect(self.btn_saveButton_clicked)
 
 
     def initialize_viewer(self):
@@ -42,6 +43,11 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
     
     def update_viewer(self,currentIndex):
         self.set_question_title(self.questionLabel, self.model.record(currentIndex).value(0))
+        self.sectionComboBox.setCurrentText(self.model.record(currentIndex).value('sect'))
+        self.marksScoredEdit.setText(self.model.record(currentIndex).value('scored'))
+        self.marksAvailableEdit.setText(self.model.record(currentIndex).value('avail'))
+        self.errorComboBox.setCurrentText(self.model.record(currentIndex).value('error'))
+        self.commentsEdit.setPlainText(self.model.record(currentIndex).value('comment'))
         self.questionImageLabel.setPixmap(self.make_pixmap(currentIndex,"q"))
         self.answerImageLabel.setPixmap(self.make_pixmap(currentIndex,"a"))
         self.stemImageLabel.setPixmap(self.make_pixmap(currentIndex,"s"))
@@ -85,6 +91,23 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
             self.currentIndex-=1
         self.update_viewer(self.currentIndex)
     
+    def btn_saveButton_clicked(self):
+        self.update_db()
+        self.saveButton.setEnabled(False)
+        self.switch_tool_buttons("on")
+
+
+    def update_db(self):
+        record=self.model.record(self.currentIndex)
+        record.setValue('comment',self.commentsEdit.toPlainText())
+        record.setValue("avail",self.marksAvailableEdit.text())
+        record.setValue("scored",self.marksScoredEdit.text())
+        record.setValue("error",self.errorComboBox.currentText())
+        record.setValue("sect",self.sectionComboBox.currentText())
+        self.model.setRecord(self.currentIndex,record)
+        self.model.submitAll()
+        
+
     def fields_changed(self):
         print("Fields changed!")
         if (not self.saveButton.isEnabled()):

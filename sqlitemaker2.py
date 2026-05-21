@@ -15,6 +15,8 @@ class Sqlite3Model:
         self.insert_rows(data)
         self.db=self.create_database_connection()
         self.model=self.create_model(self.db)
+        self.make_rows_generated()
+
 
 
 
@@ -33,6 +35,7 @@ class Sqlite3Model:
         model= QSqlTableModel(None,db)
         model.setTable("question")
         model.select() #populate table with data
+        model.setEditStrategy(QSqlTableModel.OnManualSubmit)
         return model
     
     def create_database_connection(self):
@@ -43,4 +46,9 @@ class Sqlite3Model:
         else:
             return None
 
-        
+    def make_rows_generated(self):
+        for row in range(self.model.rowCount()):
+            for field in range(self.model.record(row).count()):
+                self.model.record(row).setGenerated(field,True)
+        print("All fields are generated!")
+
