@@ -44,13 +44,15 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
     def update_viewer(self,currentIndex):
         self.set_question_title(self.questionLabel, self.model.record(currentIndex).value(0))
         self.sectionComboBox.setCurrentText(self.model.record(currentIndex).value('sect'))
-        self.marksScoredEdit.setText(self.model.record(currentIndex).value('scored'))
-        self.marksAvailableEdit.setText(self.model.record(currentIndex).value('avail'))
+        self.marksScoredEdit.setText(str(self.model.record(currentIndex).value('scored')))
+        self.marksAvailableEdit.setText(str(self.model.record(currentIndex).value('avail')))
         self.errorComboBox.setCurrentText(self.model.record(currentIndex).value('error'))
         self.commentsEdit.setPlainText(self.model.record(currentIndex).value('comment'))
         self.questionImageLabel.setPixmap(self.make_pixmap(currentIndex,"q"))
         self.answerImageLabel.setPixmap(self.make_pixmap(currentIndex,"a"))
         self.stemImageLabel.setPixmap(self.make_pixmap(currentIndex,"s"))
+        self.stop_timer()
+        print("Viewer Updated!")
 
     def switch_tool_buttons(self,on_or_off):
         val=None
@@ -120,6 +122,10 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
     def start_timer(self):
         print("Timer started!")
         self.timer.start(2000)
+    
+    def stop_timer(self):
+        print("Timer stopped!")
+        self.timer.stop()
 
 
 if __name__=="__main__":
