@@ -49,6 +49,21 @@ class Math12IEBMaker(AbstractRectangleMaker):
         titles = utils.get_question_titles(self.q_list,self.regex_separators())
         return titles            
 
+    def section_titles(self):
+        sections=[
+    "Algebra and Equations (and inequalities)",
+    "Patterns and Sequences",
+    "Finance, growth and decay",
+    "Functions and Graphs",
+    "Differential Calculus",
+    "Probability",
+    "Statistics",
+    "Analytical Geometry",
+    "Trigonometry",
+    "Euclidean Geometry and Measurement",
+        ]
+        return sections
+    
     def export_rectangles(self):
         q_rects=self.question_rectangles()
         a_rects=self.answer_rectangles()

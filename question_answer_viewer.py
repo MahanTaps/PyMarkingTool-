@@ -10,7 +10,18 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
     def __init__(self,q_filename,a_filename):
         QtWidgets.QDialog.__init__(self)
         self.setupUi(self)
-        self.model=Sqlite3Model(q_filename,a_filename).model
+        table_model=Sqlite3Model(q_filename,a_filename)
+        self.model=table_model.model
+        self.section_titles=table_model.sections
+        self.error_types=[
+    "Misread direction",
+    "Careless",
+    "Concept",
+    "Application",
+    "Test Procedure",
+    "Omission"
+    "No error",
+]
         self.currentIndex=0
         self.initialize_viewer()
         self.model_row_count=self.model.rowCount()
@@ -39,6 +50,8 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
         self.questionImageLabel.setPixmap(self.make_pixmap(0,"q"))
         self.answerImageLabel.setPixmap(self.make_pixmap(0,"a"))
         self.stemImageLabel.setPixmap(self.make_pixmap(0,"s"))
+        self.sectionComboBox.addItems(self.section_titles)
+        self.errorComboBox.addItems(self.error_types)
 
     
     def update_viewer(self,currentIndex):

@@ -11,6 +11,7 @@ class Sqlite3Model:
         self.cur=self.con.cursor()
         self.create_table()
         exporter=PaperExporter(q_file,memo_file)
+        self.sections=exporter.section_titles
         data=exporter.do_export()
         self.insert_rows(data)
         self.db=self.create_database_connection()
