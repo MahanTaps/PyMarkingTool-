@@ -19,7 +19,7 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
     "Concept",
     "Application",
     "Test Procedure",
-    "Omission"
+    "Omission",
     "No error",
 ]
         self.currentIndex=0
@@ -34,6 +34,7 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
         #Connections
         self.nextToolButton.clicked.connect(self.btn_nextButton_clicked)
         self.prevToolButton.clicked.connect(self.btn_prevButton_clicked)
+        self.exportAllButton.clicked.connect(self.btn_exportButton_clicked)
         #Connections for the save button 
         self.sectionComboBox.currentIndexChanged.connect(self.start_timer)
         self.marksScoredEdit.textChanged.connect(self.start_timer)
@@ -110,6 +111,10 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
         self.update_db()
         self.saveButton.setEnabled(False)
         self.switch_tool_buttons("on")
+
+    def btn_exportButton_clicked(self):
+
+        return None
 
 
     def update_db(self):

@@ -151,6 +151,9 @@ class Ui_QuestionAnswerViewer(object):
         self.saveButton = QtWidgets.QPushButton(self.groupBox)
         self.saveButton.setObjectName("saveButton")
         self.layout_comments.addWidget(self.saveButton)
+        self.exportAllButton = QtWidgets.QPushButton(self.groupBox)
+        self.exportAllButton.setObjectName("exportAllButton")
+        self.layout_comments.addWidget(self.exportAllButton)
         self.layout_review.addLayout(self.layout_comments)
         self.verticalLayout.addLayout(self.layout_review)
         self.gridLayout.addWidget(self.groupBox, 0, 1, 1, 1)
@@ -177,6 +180,7 @@ class Ui_QuestionAnswerViewer(object):
         self.errorLabel.setText(_translate("QuestionAnswerViewer", "Errror Type: "))
         self.commentsLabel.setText(_translate("QuestionAnswerViewer", "Comments:"))
         self.saveButton.setText(_translate("QuestionAnswerViewer", "Save"))
+        self.exportAllButton.setText(_translate("QuestionAnswerViewer", "Export All"))
 
 
 if __name__ == "__main__":
