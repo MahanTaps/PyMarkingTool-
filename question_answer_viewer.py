@@ -1,6 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QPixmap
 from ui_question_answer_viewer import Ui_QuestionAnswerViewer
+from uiexporter import UIExporter
 from PyQt5.QtWidgets import QMessageBox
 from sqlitemaker2 import Sqlite3Model
 from PyQt5.QtCore import QTimer
@@ -115,13 +116,13 @@ class QuestionAnswerViewer(QtWidgets.QDialog,Ui_QuestionAnswerViewer):
 
     def btn_exportButton_clicked(self):
         if self.warn_user_about_unsaved_work()==QMessageBox.Yes:
-            print("Selected 'yes'")
+            exporter=UIExporter(self.model)
     
     def warn_user_about_unsaved_work(self):
         warning_box=QMessageBox(self)
         warning_box.setIcon(QMessageBox.Warning)
         warning_box.setText("Only your saved work will be exported.")
-        warning_box.setWindowTitle("Export marking to the GI marksheet?")
+        warning_box.setWindowTitle("Finish and export marking to the GI marksheet?")
         warning_box.setStandardButtons(QMessageBox.Yes|QMessageBox.No)
         retval=warning_box.exec_()
         return retval
