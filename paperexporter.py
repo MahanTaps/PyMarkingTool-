@@ -12,9 +12,9 @@ class PaperExporter:
         self.img_locations=self.screenshotter.batch_filenames
         print(self.img_locations)
     
-    def make_item(self,val1,val2,val3,val4):
-        keys=['q_num','sect','scored','avail','error','lost','q_location','q_stem','answer','comment']
-        vals=[val1,None,None,None,None,None,val2,val3,val4,None]
+    def make_item(self,val1,val2,val3,val4,val5):
+        keys=['q_num','sect','scored','avail','error','lost','q_location','q_stem','answer','comment','q_text']
+        vals=[val1,None,None,None,None,None,val2,val3,val4,None,val5]
         return {k:v for (k,v) in zip(keys,vals)}
 
     def prep_export(self):
@@ -22,9 +22,10 @@ class PaperExporter:
         q_locations=self.img_locations['q_pics']
         qstem_locations=self.img_locations['stem_pics']
         a_locations=self.img_locations['a_pics']
+        q_texts=self.rect_locations['q_texts']
         paper_data=[]
-        for a,b,c,d in zip_longest(titles,q_locations,qstem_locations,a_locations):
-            paper_data.append(self.make_item(a,b,c,d))
+        for a,b,c,d,e in zip_longest(titles,q_locations,qstem_locations,a_locations,q_texts):
+            paper_data.append(self.make_item(a,b,c,d,e))
         return paper_data
     
     def do_export(self):

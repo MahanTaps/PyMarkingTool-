@@ -413,3 +413,14 @@ def map_stems(questions,stems):
                 i+=1
             mapped_stems.append(val)
     return mapped_stems
+
+
+def flatten_list(q_list):
+    flat_list=[]
+    for q in q_list: 
+        if type(q) is list: 
+            for subq in q: 
+                flat_list.append(subq)
+        else: 
+            flat_list.append(q)
+    return flat_list
