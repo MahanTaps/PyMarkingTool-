@@ -1,6 +1,6 @@
 import pandas as pd 
 import os 
-
+from google import genai
 class UIExporter:
     def __init__(self,sql_table):
         self.data=sql_table
@@ -37,31 +37,17 @@ class WordWriter:
         pass
 
 class AIFormatter:
-    def __init__(self):
-        pass
-    def prep_json(self):
-        json_list=[]
-        for i in range(self.data.rowCount()):
-            row=[]
-            for j in range(self.data.record(i).count()):
-                if j==5 or j==6 or j==7 or j==8:
-                    continue
-                else:
-                    row.append(self.data.record(i).value(j))
-            json_list.append(row)
-        print("json List: ",json_list)
-        return json_list
+    def __init__(self,prompt_data):
+        self.prompt=prompt_data
+        self.client=genai.Client()
 
-    def make_dict(self,data):
-        empty_dict={'Question number':[],'Section/ Taxonomy Title':[],'Marks Scored':[],'Marks Available':[],'Error Type':[],'Comments':[],'Question Text':[]}
-        for row in data:
-            i=0
-            for x in empty_dict:
-                empty_dict[x].append(row[i])
-                i+=1
-        return(empty_dict)
+    def run_prompt(self,prompt):
+        interaction=self.client.interactions.create(
+            model="gemini-3.8-flash",
+            input=prompt
+        )
+        return interaction.output_text
 
-    def make_json_array(self):
-        export_data=self.make_dict(self.prep_json())
-        df=pd.DataFrame(export_data)
-        return(df.to_json(None,'records')) 
+        
+
+
