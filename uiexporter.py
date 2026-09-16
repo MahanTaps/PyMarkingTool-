@@ -1,11 +1,15 @@
 import pandas as pd 
 import os 
+from dotenv import load_dotenv,find_dotenv
+from promptmaker import PromptDataCompiler,PromptXmlRenderer
+
 from google import genai
 class UIExporter:
     def __init__(self,sql_table):
         self.data=sql_table
         self.excel_writer=ExcelWriter(sql_table)
-        
+        #self.ai_service=
+
 
 
 class ExcelWriter:
@@ -35,18 +39,31 @@ class ExcelWriter:
 class WordWriter:
     def __init__(self):
         pass
-
+    def write_to_word(self,data):
+         return None
+         
 class AIFormatter:
     def __init__(self,prompt_data):
-        self.prompt=prompt_data
-        self.client=genai.Client()
+        self.prompt=self.get_file_text(prompt_data)
+        self.client=genai.Client(api_key=self.get_api_key())
 
-    def run_prompt(self,prompt):
-        interaction=self.client.interactions.create(
-            model="gemini-3.8-flash",
-            input=prompt
+    def get_file_text(self,filename):
+        with open(filename,"r",encoding="utf-8") as f:
+             content=f.read()
+        return content
+    
+    def run_prompt(self):
+        response=self.client.models.generate_content(
+            model="gemini-3.7-flash",
+            contents=self.prompt
         )
-        return interaction.output_text
+        return response.text
+    
+    def get_api_key(self):
+        env_path = find_dotenv()
+        print(load_dotenv(env_path))
+        API_KEY= os.getenv("MY_API_KEY")
+        return API_KEY
 
         
 
