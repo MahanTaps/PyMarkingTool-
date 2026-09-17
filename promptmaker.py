@@ -33,9 +33,9 @@ class PromptDataCompiler:
         return(df.to_json(orient='records'))
 
 class PromptXmlRenderer:
-    def __init__(self,xml_file,json_data):
+    def __init__(self,xml_file,sql_table):
         self.file=xml_file
-        self.data=json_data
+        self.data=PromptDataCompiler(sql_table).make_json_array()
         self.tree=self.set_tree()
         self.root=self.set_root()
 
@@ -57,5 +57,9 @@ class PromptXmlRenderer:
 
     def make_prompt(self):
         self.insert_performance_data()
-        f=open(self.file,"r")
-        return(f.read())
+        return self.get_file_text()
+
+    def get_file_text(self):
+        with open(self.file,"r",encoding="utf-8") as f:
+             content=f.read()
+        return content

@@ -7,8 +7,8 @@ from google import genai
 class UIExporter:
     def __init__(self,sql_table):
         self.data=sql_table
-        self.excel_writer=ExcelWriter(sql_table)
-        #self.ai_service=
+        self.excel_writer=ExcelWriter(self.data)
+        self.ai_service=AIFormatter(self.data)
 
 
 
@@ -43,9 +43,10 @@ class WordWriter:
          return None
          
 class AIFormatter:
-    def __init__(self,prompt_data):
-        self.prompt=self.get_file_text(prompt_data)
+    def __init__(self,sql_table):
+        self.prompt=PromptXmlRenderer('prompt.xml',sql_table).make_prompt()
         self.client=genai.Client(api_key=self.get_api_key())
+        self.run_prompt()
 
     def get_file_text(self,filename):
         with open(filename,"r",encoding="utf-8") as f:
@@ -57,6 +58,7 @@ class AIFormatter:
             model="gemini-3.7-flash",
             contents=self.prompt
         )
+        print(response.text)
         return response.text
     
     def get_api_key(self):
