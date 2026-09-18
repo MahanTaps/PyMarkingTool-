@@ -53,13 +53,17 @@ class WordWriter:
     def __init__(self,prompt_output):
         self.filename=r"html_test.docx"
         self.result=prompt_output
+        print(f"WordWriter self.result {self.result}")
         
         
     def export_to_word(self):
         document = Document()
         section = document.AddSection()
         paragraph=section.AddParagraph()
-        paragraph.AppendHTML(self.result)
+        try:
+            paragraph.AppendHTML(self.result)
+        except:
+            paragraph.AppendHTML(f"<html>{self.result}</html>")
         document.SaveToFile(self.filename,FileFormat.Docx2016)
         document.Close()
 
@@ -85,12 +89,16 @@ class AIFormatter:
         return content
     
     def run_prompt(self):
-        response=self.client.models.generate_content(
-            model="gemini-3.7-flash",
-            contents=self.prompt
-        )
-        print(response.text)
-        return response.text
+        response=None
+        try:
+            response=self.client.models.generate_content(
+                        model="gemini-3.7-flash",
+                        contents=self.prompt
+                    )
+            return(response.text)
+        except Exception as e:
+            print(f"ERROR: {e}")
+            return e
     
     def get_api_key(self):
         env_path = find_dotenv()
