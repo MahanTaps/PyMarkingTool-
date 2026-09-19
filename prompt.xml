@@ -5,83 +5,188 @@ Analyze the provided JSON array containing student test performance data to crea
 
 <input_data>
 <performance_data></performance_data>
+
 <example_report>
 <![CDATA[
 <div class="comments-and-recommendations">
   <section class="general-overview">
     <h2>General Overview</h2>
-    <p>John's performance on this test reflects a strong mathematical foundation, particularly in his basic procedural logic. When he is focused, he can move through calculations quickly and accurately. However, the test also highlights a recurring challenge observed in his tutoring sessions: when he feels fatigued/challenged or encounters a multi-step problem, his first instinct is often to rush, guess, or skip steps. Many of the marks lost across the paper were not due to a complete lack of understanding, but rather erroneous reading, omitting final steps, or trying to do too much mental arithmetic without writing down his work.</p>
+    <p>
+      John's performance on this test reflects a strong mathematical foundation,
+      particularly in his basic procedural logic. When he is focused, he can
+      move through calculations quickly and accurately. However, the test also
+      highlights a recurring challenge observed in his tutoring sessions: when
+      he feels fatigued/challenged or encounters a multi-step problem, his
+      first instinct is often to rush, guess, or skip steps. Many of the marks
+      lost across the paper were not due to a complete lack of understanding,
+      but rather erroneous reading, omitting final steps, or trying to do too
+      much mental arithmetic without writing down his work.
+    </p>
   </section>
 
   <section class="performance-by-topic">
     <h2>Performance by Topic</h2>
-    
+
     <article class="topic">
       <h3>Whole Numbers (Ratio and Rate)</h3>
-      <p>This was John's strongest section, confirming the solid progress he has made during his lessons. He demonstrated an excellent ability to share quantities in a given ratio and correctly calculated the rate of kilometers per liter.</p>
-      <p>His only roadblock here was a question asking how much he would earn in 3 hours based on an 8-hour rate. John provided no working out and simply wrote an incorrect answer of R64. As seen in his lessons, when John tries to bypass written calculations, he is prone to these avoidable errors.</p>
+      <p>
+        This was John's strongest section, confirming the solid progress he has
+        made during his lessons. He demonstrated an excellent ability to share
+        quantities in a given ratio and correctly calculated the rate of
+        kilometers per liter.
+      </p>
+      <p>
+        His only roadblock here was a question asking how much he would earn in
+        3 hours based on an 8-hour rate. John provided no working out and simply
+        wrote an incorrect answer of R64. As seen in his lessons, when John
+        tries to bypass written calculations, he is prone to these avoidable
+        errors.
+      </p>
     </article>
 
     <article class="topic">
       <h3>Algebraic Expressions</h3>
-      <p>John has a very good grasp of the basic rules of algebra. He confidently grouped like terms, managed basic exponents, and successfully handled standard simplification problems in the first part of the question, showing a good improvement from earlier in the year.</p>
-      <p>The errors occurred when the expressions became more complex and required multiple steps. For example, after correctly subtracting terms inside a bracket to get -b<sup>2</sup>, he failed to finish the question by multiplying it with the term outside the bracket. Similarly, he incorrectly simplified 2a<sup>3</sup> &divide; -1 as -8a<sup>3</sup> and then stopped after this step of the calculation. This aligns with a habit noted in his lessons where he occasionally loses concentration mid-problem and either forces incorrect operations or stops before reaching the final answer.</p>
+      <p>
+        John has a very good grasp of the basic rules of algebra. He confidently
+        grouped like terms, managed basic exponents, and successfully handled
+        standard simplification problems in the first part of the question,
+        showing a good improvement from earlier in the year.
+      </p>
+      <p>
+        The errors occurred when the expressions became more complex and
+        required multiple steps. For example, after correctly subtracting terms
+        inside a bracket to get -b<sup>2</sup>, he failed to finish the question
+        by multiplying it with the term outside the bracket. Similarly, he
+        incorrectly simplified 2a<sup>3</sup> &divide; -1 as -8a<sup>3</sup>
+        and then stopped after this step of the calculation. This aligns with
+        a habit noted in his lessons where he occasionally loses concentration
+        mid-problem and either forces incorrect operations or stops before
+        reaching the final answer.
+      </p>
     </article>
 
     <article class="topic">
       <h3>Whole Numbers (Finance)</h3>
-      <p>John knows the financial formulas well and successfully calculated the deposit, the remaining balance, and the monthly repayments. His procedural execution for the simple interest formula is generally sound.</p>
-      <p>However, he struggles to interpret the specific wording of word problems, which causes him to substitute the wrong values into his formulas. In the hire purchase question, he accidentally used the 10% deposit rate instead of the 12% interest rate when calculating simple interest using A=P(1+in). Furthermore, when asked for the total amount paid for the TV, he forgot to add the initial deposit to the final loan amount. He also struggled with the multi-step biltong profit question, confusing the cost of a single packet with the total batch. This directly mirrors his tutoring sessions, where he sometimes loses track of which values have already been used and what the question is specifically asking him to find.</p>
+      <p>
+        John knows the financial formulas well and successfully calculated the
+        deposit, the remaining balance, and the monthly repayments. His
+        procedural execution for the simple interest formula is generally
+        sound.
+      </p>
+      <p>
+        However, he struggles to interpret the specific wording of word
+        problems, which causes him to substitute the wrong values into his
+        formulas. In the hire purchase question, he accidentally used the 10%
+        deposit rate instead of the 12% interest rate when calculating simple
+        interest using A = P(1 + in). Furthermore, when asked for the total
+        amount paid for the TV, he forgot to add the initial deposit to the
+        final loan amount. He also struggled with the multi-step biltong profit
+        question, confusing the cost of a single packet with the total batch.
+        This directly mirrors his tutoring sessions, where he sometimes loses
+        track of which values have already been used and what the question is
+        specifically asking him to find.
+      </p>
     </article>
 
     <article class="topic">
       <h3>Numeric and Geometric Patterns</h3>
-      <p>John easily identified the next term in the arithmetic sequence and successfully used the general rule to calculate the 10th term, showing good procedural competence.</p>
-      <p>The main issue here is a specific common conceptual mix-up: confusing the term number with the term value. When asked which term is equal to 59, he substituted 59 as the term number (n) rather than setting the equation equal to 59.</p>
+      <p>
+        John easily identified the next term in the arithmetic sequence and
+        successfully used the general rule to calculate the 10th term, showing
+        good procedural competence.
+      </p>
+      <p>
+        The main issue here is a specific common conceptual mix-up: confusing
+        the term number with the term value. When asked which term is equal to
+        59, he substituted 59 as the term number (n) rather than setting the
+        equation equal to 59.
+      </p>
     </article>
 
     <article class="topic">
       <h3>Geometry of Straight Lines</h3>
-      <p>John has a strong visual intuition for geometry, correctly identifying the angle relationship in the multiple-choice question.</p>
-      <p>However, translating visual geometric information into formal algebraic equations remains a hurdle. When given angles on a straight line, he attempted to set up an equation but incorrectly wrote x = 3x + 2x + x = 180, eventually forcing the answer to x = 6. Additionally, he did not provide any formal geometric reasons for his statements. This is a known challenge from his lessons; while he intuitively sees how the angles relate, he needs more practice translating his thoughts into the equations required in tests.</p>
+      <p>
+        John has a strong visual intuition for geometry, correctly identifying
+        the angle relationship in the multiple-choice question.
+      </p>
+      <p>
+        However, translating visual geometric information into formal algebraic
+        equations remains a hurdle. When given angles on a straight line, he
+        attempted to set up an equation but incorrectly wrote
+        x = 3x + 2x + x = 180, eventually forcing the answer to x = 6.
+        Additionally, he did not provide any formal geometric reasons for his
+        statements. This is a known challenge from his lessons; while he
+        intuitively sees how the angles relate, he needs more practice
+        translating his thoughts into the equations required in tests.
+      </p>
     </article>
   </section>
 
   <section class="recommendations">
     <h2>Recommendations</h2>
-    <p>John's fundamental skills are strong and continue to improve, but he needs to build better test-taking habits to improve his accuracy and consistency. We recommend focusing on the following structured areas:</p>
-    
+
+    <p>
+      John's fundamental skills are strong and continue to improve, but he needs
+      to build better test-taking habits to improve his accuracy and
+      consistency. We recommend focusing on the following structured areas:
+    </p>
+
     <div class="recommendation-item">
-      <h4>Algebraic Expressions:</h4>
+      <h4>Algebraic Expressions</h4>
       <ul>
-        <li><strong>Checking Steps:</strong> John needs to build a habit of checking that there are no longer any like terms or multiplications/divisions before moving on from a question.</li>
+        <li>
+          <strong>Checking Steps:</strong>
+          John needs to build a habit of checking that there are no longer any
+          like terms or multiplications/divisions before moving on from a
+          question.
+        </li>
       </ul>
     </div>
 
     <div class="recommendation-item">
-      <h4>Whole Numbers (Finance):</h4>
+      <h4>Whole Numbers (Finance)</h4>
       <ul>
-        <li><strong>Annotating Word Problems:</strong> To prevent mixing up values like the deposit percentage and the interest rate, he should practice highlighting or underlining key information in the text before writing down his formula.</li>
+        <li>
+          <strong>Annotating Word Problems:</strong>
+          To prevent mixing up values like the deposit percentage and the
+          interest rate, he should practice highlighting or underlining key
+          information in the text before writing down his formula.
+        </li>
       </ul>
     </div>
 
     <div class="recommendation-item">
-      <h4>Numeric and Geometric Patterns:</h4>
+      <h4>Numeric and Geometric Patterns</h4>
       <ul>
-        <li><strong>Terminology Review:</strong> A targeted review focusing purely on the difference between "term value" and "term number" is essential. He should also practice identifying which variable is given in a prompt before doing any calculations, a habit that he has built in Finance problems.</li>
+        <li>
+          <strong>Terminology Review:</strong>
+          A targeted review focusing purely on the difference between
+          "term value" and "term number" is essential. He should also practice
+          identifying which variable is given in a prompt before doing any
+          calculations, a habit that he has built in Finance problems.
+        </li>
       </ul>
     </div>
 
     <div class="recommendation-item">
-      <h4>Geometry of Straight Lines:</h4>
+      <h4>Geometry of Straight Lines</h4>
       <ul>
-        <li><strong>Formal Equation Setup:</strong> He needs focused practice on turning geometric diagrams into algebraic equations.</li>
-        <li><strong>Always Include Reasons:</strong> He should also get into the habit of always providing reasons in any geometry problem, as these are awarded half the marks of most questions.</li>
+        <li>
+          <strong>Formal Equation Setup:</strong>
+          He needs focused practice on turning geometric diagrams into
+          algebraic equations.
+        </li>
+        <li>
+          <strong>Always Include Reasons:</strong>
+          He should also get into the habit of always providing reasons in any
+          geometry problem, as these are awarded half the marks of most
+          questions.
+        </li>
       </ul>
     </div>
   </section>
 </div>
-]]>
+  ]]>
 
 </example_report>
 </input_data>

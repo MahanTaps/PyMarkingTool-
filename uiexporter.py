@@ -1,5 +1,6 @@
 import pandas as pd 
 import os 
+from retrying import retry
 from dotenv import load_dotenv,find_dotenv
 from promptmaker import PromptDataCompiler,PromptXmlRenderer
 from spire.doc import *
@@ -99,6 +100,7 @@ class AIFormatter:
         except Exception as e:
             print(f"ERROR: {e}")
             return e
+
     
     def get_api_key(self):
         env_path = find_dotenv()
@@ -107,7 +109,50 @@ class AIFormatter:
         return API_KEY
     
     def export(self):
-        return self.run_prompt()
+        return self.run_prompt_with_fallbacks(self.run_prompt)
+
+    def models_list(self,index):
+        models = [
+        "gemini-3.8-flash",
+        "gemini-3.7-flash",
+        "gemini-3.6-flash",
+        "gemini-2.5-pro",
+        "gemini-3.5-flash",
+        "gemini-2.5-flash",
+        "gemini-3.5-flash-lite",
+        "gemini-2.5-flash-lite",
+        ]
+        print(f"Model: {models[index]}")
+        return models[index]
+    
+    def run_prompt(self,num_attempt):
+        response=self.client.models.generate_content(
+                                model=self.models_list(num_attempt),
+                                contents=self.prompt
+                            )
+        print(response.text)
+        return(response.text)
+
+    def run_prompt_with_fallbacks(self,func):
+        print("Starting retry...")
+        chances=4
+        attempt=0
+        error=None
+        while (attempt<chances):
+            print("Entering loop..")
+            attempt+=1
+            try:
+                print(f"Attempt: {attempt}")
+                return(func((attempt-1)))
+            except Exception as e:
+                error=e
+                print(show_error_msg(error,attempt))
+        return show_error_msg(error,attempt)
+
+
+def show_error_msg(error,attempt_num):
+    return f"Error on attempt {attempt_num}: {error}"
+
 
 
 
